@@ -6,21 +6,28 @@ import Dashboard from './pages/Admin/Dashboard';
 import ManageTasks from './pages/Admin/ManageTasks';
 import ManageUsers from './pages/Admin/ManageUsers';
 
+import Dashboard from './pages/User/Dashboard';
+import MyTasks from './pages/User/MyTasks';
+
 function App() {
   return (
     <div>
       <Router>
-
         <Routes>
 
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
 
-        <Route element={<PrivateRoute allowedRoles={["admin"]}/>}/>
+        <Route element={<PrivateRoute allowedRoles={["admin"]}/>}>
           <Route path='/admin/dashboard' element={<Dashboard/>}/>
           <Route path='/admin/tasks' element={<ManageTasks/>}/>
           <Route path='/admin/create-tasks' element={<ManageUsers/>}/>
-         
+        </Route>
+
+        <Route element={<PrivateRoute allowedRoles={["user"]}/>}/>
+           <Route path='/user/dashboard' element={<Dashboard/>}/>
+           <Route path='/user/dashboard' element={<MyTasks/>}/>
+
         </Routes>
       </Router>
     </div>
