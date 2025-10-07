@@ -6,7 +6,9 @@ import Dashboard from './pages/Admin/Dashboard';
 import ManageTasks from './pages/Admin/ManageTasks';
 import ManageUsers from './pages/Admin/ManageUsers';
 
-import Dashboard from './pages/User/Dashboard';
+
+
+import UserDashboard from './pages/User/UserDashboard';
 import MyTasks from './pages/User/MyTasks';
 
 function App() {
@@ -25,7 +27,7 @@ function App() {
         </Route>
 
         <Route element={<PrivateRoute allowedRoles={["user"]}/>}/>
-           <Route path='/user/dashboard' element={<Dashboard/>}/>
+           <Route path='/user/dashboard' element={<UserDashboard/>}/>
            <Route path='/user/dashboard' element={<MyTasks/>}/>
 
         </Routes>
