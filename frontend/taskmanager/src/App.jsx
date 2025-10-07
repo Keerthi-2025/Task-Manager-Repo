@@ -2,14 +2,18 @@ import React from 'react'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 
+import Login from './pages/Auth/Login';
+import Signup from './pages/Auth/Signup';
+
 import Dashboard from './pages/Admin/Dashboard';
 import ManageTasks from './pages/Admin/ManageTasks';
 import ManageUsers from './pages/Admin/ManageUsers';
 
-
-
 import UserDashboard from './pages/User/UserDashboard';
 import MyTasks from './pages/User/MyTasks';
+import ViewTaskDetails from './pages/User/ViewTaskDetails';
+
+import PrivateRoute from './routes/PrivateRoute';
 
 function App() {
   return (
@@ -26,9 +30,11 @@ function App() {
           <Route path='/admin/create-tasks' element={<ManageUsers/>}/>
         </Route>
 
-        <Route element={<PrivateRoute allowedRoles={["user"]}/>}/>
+        <Route element={<PrivateRoute allowedRoles={["user"]}/>}>
            <Route path='/user/dashboard' element={<UserDashboard/>}/>
-           <Route path='/user/dashboard' element={<MyTasks/>}/>
+           <Route path='/user/tasks' element={<MyTasks/>}/>
+           <Route path='/user/task-details/:id' element={<ViewTaskDetails/>}/>
+        </Route>  
 
         </Routes>
       </Router>
