@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -19,6 +20,13 @@ app.use(
 //Middleware
 app.use(express.json());
 
+//Routes
+// app.use("/api/auth", authRoutes);
+// app.use("/api/users/",userRoutes);
+// app.use("/api/tasks", taskRoutes);
+// app.use("/api/reports", reportRoutes);
+
+
 //Start server
 const PORT = process.env.PORT || 5000;
-app.listen,  () => console.log(`Server is running on port {PORT}`)
+app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
