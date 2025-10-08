@@ -7,13 +7,14 @@ const todoSchema = new mongoose.Schema(
     }
 );
 
+
 const taskSchema = new mongoose.Schema(
     {
         title:{type:String, required:true},
         decsription:{type:String, required:true},
         priority:{type:String, enum:["high", "low", "medium"], default:"medium"},
         status:{type:String, enum:["Pending", "In Progress", "Completed"], default:"Pending"},
-        dueDate:{type:String, required:true},
+        dueDate:{type:Date, required:true},
         attachements:{type:String},
         assignedTo:{type:mongoose.Schema.Types.ObjectId, ref:"User"},
         createdBy:{type:mongoose.Schema.Types.ObjectId, ref:"User"},
