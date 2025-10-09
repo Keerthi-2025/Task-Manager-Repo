@@ -25,4 +25,5 @@ const taskSchema = new mongoose.Schema(
     {timestamps:true}
 )
 
-module.exports = mongoose.model("User", taskSchema);
+// module.exports = mongoose.model("User", taskSchema);
+module.exports = mongoose.models.User || mongoose.model("User", UserSchema);
