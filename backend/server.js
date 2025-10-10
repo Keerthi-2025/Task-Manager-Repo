@@ -18,8 +18,9 @@ app.use(
 )
 
 
-const authRoutes = require("./routes/authRoutes")
-const userRoutes = require("./routes/userRoutes")
+const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 
 //connect db
 connectDB();
