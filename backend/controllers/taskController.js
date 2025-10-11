@@ -255,7 +255,46 @@ const updateTaskStatus = async(req, res)=>{
 //@access Private(admin)
 const updateTaskChecklist = async(req, res)=>{
     try {
+        const {todoChecklist} = req.body;
+        const task = await Task.findById(req.params.id);
+
+        if(!task) return res.status(404).json({message:"Task not found"});
+
+        // if(!task.assignedTo.includes(req.user._id) && req.user.role !== "admin"){
+        //     return res.status(403).json({message:" Not authorized to update checklist"});
+        // }
+
+        if(!task.assignedTo || (task.assignedTo.toString() !== req.user._id.toString() && req.user.role !== "admin")){
+    return res.status(403).json({message:"Not authorized to update checklist"});
+}
+
+
+        task.todoChecklist = todoChecklist;     //replace with updated checklist
+
+        //auto update progress based on checklist completion
+        const completedCount = task.todoChecklist.filter(
+            (item) => item.completed
+        ).length;
         
+        const tottalItems = task.todoChecklist.length;
+        task.progress = tottalItems > 0 ? Math.round((completedCount / tottalItems) * 100) : 0;
+
+        //auto amrk task as completed if all items are checked
+        if(task.progress === 100){
+            task.status = "Completed";
+        }else if(task.progress > 0){
+            task.status = "In Progress";
+        }else{
+            task.status = "Pending";
+        }
+
+        await task.save();
+        const updatedTask = await Task.findById(req.params.id).populate(
+            "assignedTo",
+            "name email profileImageUrl"
+        )
+
+        res.json({message:"Task checklist updated", task:updatedTask});
     } catch (error) {
         res.status(500).json({message:"Server error", error:error.message});
 
