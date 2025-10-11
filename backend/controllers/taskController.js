@@ -214,6 +214,32 @@ const deleteTask = async(req, res)=>{
 //@access Private(admin)
 const updateTaskStatus = async(req, res)=>{
     try {
+        const task = await Task.findById(req.params.id);
+        if(!task) return res.json(404).json({message:" Task not found"});
+        // return res.status(404).json({ message: "Task not found" });
+
+
+        // const isAssigned = task.assignedTo(
+        //     (userId) => userId.toString() === req.user._id.toString()
+        // );
+
+        const isAssigned =
+  task.assignedTo && task.assignedTo.toString() === req.user._id.toString();
+
+
+         if(!isAssigned && req.user.role !=="admin"){
+            return res.status(403).json({message:"Not authorized"});
+         }
+
+         task.status = req.body.status || task.status;
+
+         if(task.status === "completed"){
+            task.todoChecklist.forEach((item) =>  (item.completed = true));
+            task.progress = 100;
+         }
+
+         await task.save();
+         res.json({message:" Task updated successfully", task});
         
     } catch (error) {
      res.status(500).json({message:"Server error", error:error.message});
