@@ -5,8 +5,40 @@ const Task = require("../models/Task");
 //@route GET /api/tasks
 //@access Private(admin)
 const getTasks = async(req, res)=>{
-
     try {
+        const {status} = req.query;
+        let filter ={};
+
+        if(status){
+            filter.status = status;
+        }
+
+        let tasks;
+
+        if(req.user.role === 'admin'){
+            tasks = await Task.find(filter).populate(
+                "assisgnedTo",
+                "name email profileImageUrl"
+            );
+        }else{
+            tasks = await Task.find({...filter, assisgnedTo: req.user_.id}).populate(
+                 "assisgnedTo",
+                "name email profileImageUrl"
+            )
+        }
+
+        //add completed todocgecklist count to each task
+        tasks = await Promise.all(
+            tasks.map(async(task) =>{
+                const completedCount = task.todoChecklist.filter(
+                    (item) =>item.completed
+                ).length;
+                return {...task._doc, completedTodoCount: completedCount};    
+            })
+        );
+
+
+        
         
     } catch (error) {
         res.status(500).json({message:"Server error", error:error.message});
