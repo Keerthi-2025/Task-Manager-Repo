@@ -403,6 +403,20 @@ const getUserDashboardData = async(req, res)=>{
         const completedTasks = await Task.countDocuments({assignedTo:userId, status: "Completed"});
         const overdueTasks = await Task.countDocuments({assignedTo:userId, status:{$ne:"Completed"}, dueDate:{$lt: new Date()}});
 
+        //Task distribution by status
+        const taskStatus = ["Pending", "In Progress", "Completed"];
+        const taskDistributionRaw = await Task.aggregate([
+            {$match :{assignedTo: userId}},
+            {$group:{_id: "$status", count:{$sum:1}}},
+        ]);
+
+        const taskDistribution = taskStatus.reduce((acc, status) =>{
+            const formattedKey = status.replace(/\s+/g,"");
+            acc[formattedKey]= taskDistributionRaw.find((item) => item._id === status)?.count || 0;
+            return acc;
+        }, {});
+        taskDistribution["All"] = tottalTasks;
+
         
     } catch (error) {
          res.status(500).json({message:"Server error", error:error.message});
