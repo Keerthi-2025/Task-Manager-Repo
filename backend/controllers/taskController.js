@@ -417,6 +417,18 @@ const getUserDashboardData = async(req, res)=>{
         }, {});
         taskDistribution["All"] = tottalTasks;
 
+        //task distribution by priority
+        const taskPriorities = ["Low", "High", "Medium"];
+        const taskPriorityLevelsRaw = await Task.aggregate([
+            {$match:{assignedTo:userId}},
+            {$group:{_id:"$priority", count:{$sum:1}}},
+        ]);
+
+        const taskPriorityLevels = taskPriorities.reduce((acc, priority) =>{
+            acc[priority]= taskPriorityLevelsRaw.find((item)=> item._id === priority)?.count ||0;
+            return acc;
+        },{});
+
         
     } catch (error) {
          res.status(500).json({message:"Server error", error:error.message});
