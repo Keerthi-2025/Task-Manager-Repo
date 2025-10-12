@@ -21,7 +21,7 @@ const getTasks = async(req, res)=>{
                 "name email profileImageUrl"
             );
         }else{
-            tasks = await Task.find({...filter, assisgnedTo: req.user_.id}).populate(
+            tasks = await Task.find({...filter, assignedTo: req.user._id}).populate(
                  "assignedTo",
                 "name email profileImageUrl"
             )

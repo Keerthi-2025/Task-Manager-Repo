@@ -40,6 +40,9 @@ app.use("/api/tasks", taskRoutes);
 app.use("/api/reports", reportRoutes);
 
 
+// app.use('/api', require('./routes/tasks'));
+
+
 //Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
