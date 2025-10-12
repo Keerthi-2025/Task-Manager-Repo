@@ -392,6 +392,17 @@ const getDashboardData = async(req, res)=>{
 //@access Private(admin)
 const getUserDashboardData = async(req, res)=>{
     try {
+
+        const userId = req.user._id;     //only fecth the logged in user
+
+
+
+        //fetch statistics for user specific tasks
+        const tottalTasks = await Task.countDocuments({assignedTo: userId});
+        const pendingTasks = await Task.countDocuments({assignedTo:userId, status: "Pending"});
+        const completedTasks = await Task.countDocuments({assignedTo:userId, status: "Completed"});
+        const overdueTasks = await Task.countDocuments({assignedTo:userId, status:{$ne:"Completed"}, dueDate:{$lt: new Date()}});
+
         
     } catch (error) {
          res.status(500).json({message:"Server error", error:error.message});
