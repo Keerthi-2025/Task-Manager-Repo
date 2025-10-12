@@ -430,6 +430,28 @@ const getUserDashboardData = async(req, res)=>{
         },{});
 
         
+
+        //fetch recent 10 tasks for the logged-in user
+        const recentTasks = await Task.find({assignedTo:userId})
+        .sort({createdAt: -1})
+        .limit(10)
+        .select("title status priority dueDate createdAt");
+
+        res.status(200).json({
+            statistics:{
+                tottalTasks,
+                pendingTasks,
+                completedTasks,
+                overdueTasks,
+            },
+            charts:{
+                taskDistribution,
+                taskPriorityLevels,
+            },
+            recentTasks
+        });
+
+        
     } catch (error) {
          res.status(500).json({message:"Server error", error:error.message});
   
