@@ -1,39 +1,56 @@
-import React, { useState } from 'react'
-import AuthLayout from '../../components/layouts/AuthLayout'
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import AuthLayout from '../../components/layouts/AuthLayout';
+import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../components/Input/Input';
 
 function Login() {
-
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
-  const [error, seterror] = useState("");
+  const [email, setemail] = useState('');
+  const [password, setpassword] = useState('');
+  const [error, seterror] = useState('');
 
   const navigate = useNavigate();
 
-  //handle login  form submit
-  const handleLogin = async (e) =>{
+  const handleLogin = async (e) => {
     e.preventDefault();
-  }
+    
+  };
+
   return (
     <AuthLayout>
-      <div className='lg:w-[70] h-3/4 md:h-full  flex flex-col justify-center'>
-        <h3 className='text-xl font-semibold text-black'>Welcome Back  </h3>
-          <p className='text-xs mb-6'>Please enter ypur Login Details</p>
+      <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
+        <h3 className="text-xl font-semibold text-black">Welcome Back</h3>
+        <p className="text-xs mb-6">Please enter your login details</p>
 
-
-          <form onSubmit={handleLogin}>
-            <Input
-            type='text'
-            placeholder='example@gmail.com'
-            label='Email address'
+        <form onSubmit={handleLogin}>
+          <Input
+            type="text"
+            placeholder="example@gmail.com"
+            label="Email address"
             value={email}
-            onChange={({target})=>setemail(target.value)}/>
-          </form>
-      
+            onChange={({ target }) => setemail(target.value)}
+          />
+
+          <Input
+            type="password"
+            placeholder="••••••••"
+            label="Password"
+            value={password}
+            onChange={({ target }) => setpassword(target.value)}
+          />
+
+          { error && <p className='text-red-800 font-medium'>{error}</p>}
+
+          <button type='submit' className='btn-primary'>Login</button>
+
+          <p>
+            Don't have an account?{""}
+            <Link className='font-medium underline'to={"/signup"}>SignUp</Link>
+          </p>
+
+        </form>
       </div>
     </AuthLayout>
-  )
+  );
 }
 
-export default Login
+export default Login;
