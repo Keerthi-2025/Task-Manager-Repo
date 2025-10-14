@@ -2,6 +2,7 @@ import { useState } from 'react';
 import AuthLayout from '../../components/layouts/AuthLayout';
 import { Link, useNavigate } from 'react-router-dom';
 import Input from '../../components/Input/Input';
+import { validateEmail } from '../../utils/helper';
 
 function Login() {
   const [email, setemail] = useState('');
@@ -12,7 +13,22 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    
+
+    if(!validateEmail(email)){
+      seterror("Please enter a valid email address");
+      return; 
+    }
+
+    if(!password){
+      seterror("Please enter the valid password");
+      return;
+    }
+
+    seterror("");
+
+
+    //Login API Call
+
   };
 
   return (
