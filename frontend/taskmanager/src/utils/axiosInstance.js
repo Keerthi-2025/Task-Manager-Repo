@@ -28,3 +28,24 @@ axiosInstance.interceptors.request.use(
     }
 );
 
+//Response Interceptor
+axiosInstance.interceptors.request.use(
+    (response) =>{
+        return response;
+    },
+    (error)=>{
+        if(error.response){
+            if(error.response.status === 400){
+                //redirect to login page
+                window.location.href ="/login";
+            }else if(error.response.status === 500){
+                console.log("Server error. Please try again later");
+            }
+        }else if(error.code === "ECONNABORTED"){
+            console.log("Request Timeout. Please try again");
+        }
+        return Promise.reject(error);
+    }
+);
+
+export default axiosInstance;
