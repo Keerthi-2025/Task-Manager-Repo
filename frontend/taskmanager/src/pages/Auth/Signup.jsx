@@ -2,6 +2,8 @@ import  { useState } from 'react'
 import AuthLayout from '../../components/layouts/AuthLayout'
 import { validateEmail } from '../../utils/helper';
 import ProfilePhotoSelector from '../../components/Input/ProfilePhotoSelector';
+import Input from '../../components/Input/Input';
+import { Link } from 'react-router-dom';
 
 function Signup() {
 
@@ -44,6 +46,47 @@ function Signup() {
         <ProfilePhotoSelector image={profilePic} setImage={setProfilePic}/>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+          <Input
+          value={fullName}
+          onChange={({target}) => setFullName(target.value)}
+          label={"Full Name"}
+          placeholder={"Jon"}
+          type={Text}/>
+
+            <Input
+            type="text"
+            placeholder="example@gmail.com"
+            label="Email address"
+            value={email}
+            onChange={({ target }) => setEmail(target.value)}
+          />
+
+          <Input
+            type="password"
+            placeholder="••••••••"
+            label="Password"
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
+          />
+
+           <Input
+            type="password"
+            placeholder="Enyer 6 Digit Code"
+            label="Admin Invite Token"
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
+          />
+
+           { error && <p className='text-red-800 font-medium'>{error}</p>}
+
+          <button type='submit' className='btn-primary'>Sign</button>
+
+          <p>
+           Already have an account?{""}
+            <Link className='font-medium underline'to={"/login"}>Login</Link>
+          </p>
+
+
 
         </div>
 
