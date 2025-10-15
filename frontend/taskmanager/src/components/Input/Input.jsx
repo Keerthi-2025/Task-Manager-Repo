@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import {FaRegEye, FaRegEyeSlash} from "react-icons/fa6"
 
 function Input({ type, placeholder, label, value, onChange }) {
@@ -7,7 +7,6 @@ function Input({ type, placeholder, label, value, onChange }) {
   const [showPassword ,setshowPassword] = useState(false);
   const toggleShowPassword = () =>{
     setshowPassword(!setshowPassword);
-
   }
     
   return (

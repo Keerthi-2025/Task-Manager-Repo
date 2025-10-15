@@ -1,4 +1,3 @@
-import React from 'react';
 import LogImage from '../../assets/images/new.jpg';
 
 function AuthLayout({ children }) {
