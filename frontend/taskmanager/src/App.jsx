@@ -15,9 +15,13 @@ import MyTasks from './pages/User/MyTasks';
 import ViewTaskDetails from './pages/User/ViewTaskDetails';
 
 import PrivateRoute from './routes/PrivateRoute';
+import UserProvider from './components/context/useContext';
 
 function App() {
   return (
+    <UserProvider>
+
+   
     <div>
       <Router>
         <Routes>
@@ -41,6 +45,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+     </UserProvider>
   )
 }
 

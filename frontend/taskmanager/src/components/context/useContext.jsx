@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const userContext = createContext();
 
-const UserProvider =((Children)) => {
+const UserProvider = ({ children }) => {
 
     const [user, setuser] = useState(null);
     const [loading, setloading] = useState(true);       //new state to track loading
@@ -35,4 +35,22 @@ const UserProvider =((Children)) => {
         fetchUser();
     }, []);
 
+    const updateUser = (userData) =>{
+        setuser(userData);
+        localStorage.setItem("token", userData.token);      //save token
+        setloading(false);
+    }
+
+    const clearUser = () =>{
+        setuser(null);
+        localStorage.removeItem("token");
+    }
+    return(
+        <userContext.Provider value={{user, loading, updateUser, clearUser}}>
+            {Children}
+        </userContext.Provider>
+    );
+
 }
+
+export default UserProvider;
