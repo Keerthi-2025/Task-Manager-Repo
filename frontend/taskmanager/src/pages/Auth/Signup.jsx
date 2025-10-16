@@ -51,7 +51,7 @@ function Signup() {
           onChange={({target}) => setFullName(target.value)}
           label={"Full Name"}
           placeholder={"Jon"}
-          type={Text}/>
+          type={"text"}/>
 
             <Input
             type="text"
@@ -62,24 +62,25 @@ function Signup() {
           />
 
           <Input
-            type="password"
-            placeholder="••••••••"
-            label="Password"
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
-          />
+  type="password"
+  placeholder="••••••••"
+  label="Password"
+  value={password}
+  onChange={({ target }) => setPassword(target.value)}
+/>
 
-           <Input
-            type="password"
-            placeholder="Enyer 6 Digit Code"
-            label="Admin Invite Token"
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
-          />
+<Input
+  type="text"
+  placeholder="Enter 6 Digit Code"
+  label="Admin Invite Token"
+  value={adminInviteToken}
+  onChange={({ target }) => setAdminInviteToken(target.value)}
+/>
+
 
            { error && <p className='text-red-800 font-medium'>{error}</p>}
 
-          <button type='submit' className='btn-primary'>Sign</button>
+          <button type='submit' className='btn-primary'>Sign Up</button>
 
           <p>
            Already have an account?{""}
