@@ -29,7 +29,6 @@ axiosInstance.interceptors.request.use(
 );
 
 //Response Interceptor
-// Response Interceptor
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
