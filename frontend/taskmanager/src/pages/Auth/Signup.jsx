@@ -1,9 +1,11 @@
-import  { useState } from 'react'
+import  { useContext, useState } from 'react'
 import AuthLayout from '../../components/layouts/AuthLayout'
 import { validateEmail } from '../../utils/helper';
 import ProfilePhotoSelector from '../../components/Input/ProfilePhotoSelector';
 import Input from '../../components/Input/Input';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axiosInstance from '../../utils/axiosInstance';
+import { API_PATHS } from '../../utils/apiPath';
 
 function Signup() {
 
@@ -12,26 +14,72 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [adminInviteToken, setAdminInviteToken] = useState("");
-  const [error, seterror] = useState(null);
+
+
+  const [error, setError] = useState(null);
+
+  const {updateUser} = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
       e.preventDefault();
+
+      let profileImageUrl = ''
   
       if(!fullName){
-        seterror("Please enter a Full Name");
+        setError("Please enter a Full Name");
         return; 
       }
   
       if(!password){
-        seterror("Please enter the valid password");
+        setError("Please enter the valid password");
         return;
       }
  
   
-      seterror("");
+      setError("");
     }
 
       //SignUp API call
+      try {
+
+
+        //upload image if present
+        if(profilePic){
+          const imageUploadRes = await uploadImage(profilePic);
+          profileImageUrl = imageUploadRes.imageUrl || "";
+        }
+        const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
+        name: fullName,
+        email,
+        password,
+        profileImageUrl,
+        adminInviteToken
+        });
+        
+        const {token, role} = response.data;
+
+        if(token){
+          localStorage.setItem("token", token);
+          updateUser(response.data);
+          
+
+          //redirect based on role
+          if(role === "admin"){
+            navigate("/admin/dashboard");
+          }else{
+            navigate("/user/dashboard");
+
+          }
+        }
+      } catch (error) {
+        if(error.response && error.response.data.message){
+          setError(error.response.data.message);
+        }else{
+          setError("Something went wrong. Please try again")
+        }
+        
+      }
   
   
   
