@@ -6,6 +6,9 @@ import Input from '../../components/Input/Input';
 import { Link, useNavigate } from 'react-router-dom';
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPath';
+import uploadImage from '../../utils/uploadImage';
+import { UserContext } from "../../components/context/useContext";
+
 
 function Signup() {
 
@@ -38,10 +41,9 @@ function Signup() {
  
   
       setError("");
-    }
 
-      //SignUp API call
-      try {
+
+       try {
 
 
         //upload image if present
@@ -80,6 +82,10 @@ function Signup() {
         }
         
       }
+    }
+
+      //SignUp API call
+     
   
   
   
