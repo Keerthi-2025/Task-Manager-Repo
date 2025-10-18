@@ -42,6 +42,9 @@ app.use("/api/reports", reportRoutes);
 
 // app.use('/api', require('./routes/tasks'));
 
+//serve uploads folder
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 
 //Start server
 const PORT = process.env.PORT || 5000;

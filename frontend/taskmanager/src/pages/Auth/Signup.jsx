@@ -27,7 +27,7 @@ function Signup() {
   const handleSignUp = async (e) => {
       e.preventDefault();
 
-      let profileImageUrl = ''
+      let profileImageUrl = '';
   
       if(!fullName){
         setError("Please enter a Full Name");
@@ -43,8 +43,8 @@ function Signup() {
             setError("Please enter a valid email address");
             return;
           }
- 
-  
+
+
       setError("");
 
 
