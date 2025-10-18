@@ -38,6 +38,11 @@ function Signup() {
         setError("Please enter the valid password");
         return;
       }
+
+      if (!validateEmail(email)) {
+            setError("Please enter a valid email address");
+            return;
+          }
  
   
       setError("");
@@ -65,13 +70,11 @@ function Signup() {
           localStorage.setItem("token", token);
           updateUser(response.data);
           
-
           //redirect based on role
           if(role === "admin"){
             navigate("/admin/dashboard");
           }else{
             navigate("/user/userdashboard");
-
           }
         }
       } catch (error) {
