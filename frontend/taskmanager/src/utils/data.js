@@ -38,3 +38,44 @@ export const SIDE_MENU_DATA = [
     path: "logout",
   },
 ];
+
+
+
+import {
+  LuLayoutDashboard,
+  LuUsers,
+  LuClipboardCheck,
+  LuSquarePlus,
+  LuLogOut
+} from "react-icons/lu";
+
+export const SIDE_MENU_USER_DATA = [
+  {
+    id: "01",
+    label: "Dashboard",
+    icon: LuLayoutDashboard,
+    path: "/user/userdashboard",
+  },
+  {
+    id: "02",
+    label: "My  Tasks",
+    icon: LuClipboardCheck,
+    path: "/user/tasks",
+  },
+  {
+    id: "03",
+    label: "Create Tasks",
+    icon: LuSquarePlus,
+    path: "/admin/create-tasks",
+  },
+  
+  {
+    id: "04",
+    label: "Logout",
+    icon: LuLogOut,
+    path: "logout",
+  },
+];
+
+
+
