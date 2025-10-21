@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SideMenu() {
+function SideMenu({activeMenu}) {
   return (
     <div>SideMenu</div>
   )
