@@ -41,13 +41,6 @@ export const SIDE_MENU_DATA = [
 
 
 
-import {
-  LuLayoutDashboard,
-  LuUsers,
-  LuClipboardCheck,
-  LuSquarePlus,
-  LuLogOut
-} from "react-icons/lu";
 
 export const SIDE_MENU_USER_DATA = [
   {
