@@ -9,4 +9,8 @@ export const API_PATHS = {
     GET_PROFILE: "/api/auth/profile",   //get logged in user details
 },
 
+USERS:{
+    
+}
+
 };

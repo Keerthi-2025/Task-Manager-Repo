@@ -13,24 +13,24 @@ router.post("/login", loginUser);
 router.get("/profile",protect, getUserProfile);
 router.post("/profile", protect, updateUserProfile);
 
-// router.post("/upload-image", upload.single("image"), (req,res)=>{
-//     if(!req.file){
-//         return res.status(404).json({message: "No file uploaded."});
-//     }
-//     const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
-//     res.status(200).json({imageUrl});
-// })
+router.post("/upload-image", upload.single("image"), (req,res)=>{
+    if(!req.file){
+        return res.status(404).json({message: "No file uploaded."});
+    }
+    const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+    res.status(200).json({imageUrl});
+})
 
-router.post("/upload-image", upload.single("image"), (req, res) => {
-  if (!req.file) {
-    return res.status(404).json({ message: "No file uploaded." });
-  }
+// router.post("/upload-image", upload.single("image"), (req, res) => {
+//   if (!req.file) {
+//     return res.status(404).json({ message: "No file uploaded." });
+//   }
 
-  const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+//   const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
 
-  // ✅ Return it with the key your frontend expects
-  res.status(200).json({ profileImageUrl: imageUrl });
-});
+//   // ✅ Return it with the key your frontend expects
+//   res.status(200).json({ profileImageUrl: imageUrl });
+// });
 
 
 module.exports= router;
