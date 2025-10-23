@@ -7,7 +7,6 @@ import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPath';
 import moment from 'moment';
 import InfoCard from '../../components/context/Cards/InfoCard';
-import {IoMdCard} from 'react-icons/io'
 import { addThousandsSeparator } from '../../utils/helper';
 
 function Dashboard() {
@@ -81,7 +80,7 @@ function Dashboard() {
 
           
           <InfoCard  
-          label= "In Progress Tasks"
+          label= "InProgress Tasks"
           value = {addThousandsSeparator(
             dashboardData?.charts?.taskDistribution?.InProgress || 0
           )}
