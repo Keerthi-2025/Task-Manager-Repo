@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPath';
 import moment from 'moment';
+import InfoCard from '../../components/context/Cards/InfoCard';
+import {IoMdCard} from 'react-icons/io'
 
 function Dashboard() {
   useUserAuth();
@@ -58,7 +60,7 @@ function Dashboard() {
         </div>
 
         <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-4'>
-          <InfoCard
+          <InfoCard  
           icon = {<IoMdCard/>}
           label= "Total Tasks"
           value = {addThousandsSeparator(
