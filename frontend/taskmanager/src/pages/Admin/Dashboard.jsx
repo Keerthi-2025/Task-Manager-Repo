@@ -56,6 +56,17 @@ function Dashboard() {
             <p className='text-xs md:text-2xl mt-1.5 text-gray-600'>{moment().format("dddd Do MMM YYYY")}</p>
           </div>
         </div>
+
+        <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-4'>
+          <InfoCard
+          icon = {<IoMdCard/>}
+          label= "Total Tasks"
+          value = {addThousandsSeparator(
+            dashboardData?.charts?.taskDistribution?.All || 0
+          )}
+          color = "bg-primary"
+          />
+        </div>
       </div>
     </DashBoardLayout>
   )
