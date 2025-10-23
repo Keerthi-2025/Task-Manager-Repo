@@ -67,17 +67,34 @@ function Dashboard() {
           value = {addThousandsSeparator(
             dashboardData?.charts?.taskDistribution?.All || 0
           )}
-          color = "bg-primary"
+          color = "bg-blue-600"
           />
 
 
           <InfoCard  
-         
           label= "Pending Tasks"
           value = {addThousandsSeparator(
             dashboardData?.charts?.taskDistribution?.Pending || 0
           )}
-          color = "bg-primary"
+          color = "bg-red-800"
+          />
+
+          
+          <InfoCard  
+          label= "In Progress Tasks"
+          value = {addThousandsSeparator(
+            dashboardData?.charts?.taskDistribution?.InProgress || 0
+          )}
+          color = "bg-yellow-400"
+          />
+
+          
+          <InfoCard  
+          label= "Completed Tasks"
+          value = {addThousandsSeparator(
+            dashboardData?.charts?.taskDistribution?.Completed || 0
+          )}
+          color = "bg-green-500"
           />
         </div>
       </div>
