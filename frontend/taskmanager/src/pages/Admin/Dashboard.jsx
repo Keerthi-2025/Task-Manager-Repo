@@ -62,7 +62,7 @@ function Dashboard() {
 
         <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-4'>
           <InfoCard  
-          icon = {<IoMdCard/>}
+          // icon = {<IoMdCard/>}
           label= "Total Tasks"
           value = {addThousandsSeparator(
             dashboardData?.charts?.taskDistribution?.All || 0
