@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import useUserAuth from '../../hooks/useUserAuth'
 import DashBoardLayout from '../../components/layouts/DashBoardLayout';
 import { UserContext } from '../../components/context/useContext';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPath';
+import moment from 'moment';
 
 function Dashboard() {
   useUserAuth();
@@ -33,11 +34,30 @@ function Dashboard() {
       console.log("Error fetching users", error);
       
     }
-  }
+  };
+
+
+  useEffect(() => {
+    getDashboardData();
+  
+    return () => {}
+  }, []);
+  
 
 
   return (
-    <DashBoardLayout activeMenu={"Dashboard"}>Dashboard</DashBoardLayout>
+    <DashBoardLayout activeMenu={"Dashboard"}>
+      {/* {JSON.stringify(dashboardData)}   //to view the data */}
+
+      <div className='card my-5'>
+        <div>
+          <div className='col-span-3'>
+            <h2 className=' text-xl md:text-2xl font-semibold'>Good morning ! {user?.name}</h2>
+            <p className='text-xs md:text-2xl mt-1.5 text-gray-600'>{moment().format("dddd Do MMM YYYY")}</p>
+          </div>
+        </div>
+      </div>
+    </DashBoardLayout>
   )
 }
 
