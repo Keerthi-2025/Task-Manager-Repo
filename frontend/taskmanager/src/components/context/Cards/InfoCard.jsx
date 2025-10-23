@@ -1,6 +1,6 @@
 import React from 'react'
 
-function InfoCard() {
+function InfoCard({icon, label, value, color}) {
   return (
     <div>InfoCard</div>
   )

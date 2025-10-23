@@ -8,6 +8,7 @@ import { API_PATHS } from '../../utils/apiPath';
 import moment from 'moment';
 import InfoCard from '../../components/context/Cards/InfoCard';
 import {IoMdCard} from 'react-icons/io'
+import { addThousandsSeparator } from '../../utils/helper';
 
 function Dashboard() {
   useUserAuth();
