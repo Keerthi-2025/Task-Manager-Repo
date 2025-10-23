@@ -69,6 +69,16 @@ function Dashboard() {
           )}
           color = "bg-primary"
           />
+
+
+          <InfoCard  
+         
+          label= "Pending Tasks"
+          value = {addThousandsSeparator(
+            dashboardData?.charts?.taskDistribution?.Pending || 0
+          )}
+          color = "bg-primary"
+          />
         </div>
       </div>
     </DashBoardLayout>
