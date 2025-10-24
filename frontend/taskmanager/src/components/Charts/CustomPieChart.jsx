@@ -9,6 +9,8 @@ import {
     Legend
 } from "recharts";
 
+import CustomTooltip from './CustomTooltip';
+
 
 function CustomPieChart({data, label, colors}) {
   return (
@@ -30,6 +32,7 @@ function CustomPieChart({data, label, colors}) {
               <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
             ))}
                 </Pie>
+                <Tooltip content={CustomTooltip}/>
             </PieChart>
         </ResponsiveContainer>
     </div>
