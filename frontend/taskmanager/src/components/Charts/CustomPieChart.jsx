@@ -10,6 +10,7 @@ import {
 } from "recharts";
 
 import CustomTooltip from './CustomTooltip';
+import CustomLegend from './CustomLegend';
 
 
 function CustomPieChart({data, label, colors}) {
@@ -33,6 +34,8 @@ function CustomPieChart({data, label, colors}) {
             ))}
                 </Pie>
                 <Tooltip content={CustomTooltip}/>
+                
+                {/* <Legend content={<CustomLegend}/> */}
             </PieChart>
         </ResponsiveContainer>
     </div>
