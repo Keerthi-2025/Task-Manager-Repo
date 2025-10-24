@@ -10,7 +10,6 @@ import {
 } from "recharts";
 
 import CustomTooltip from './CustomTooltip';
-import CustomLegend from './CustomLegend';
 
 
 function CustomPieChart({data, label, colors}) {
