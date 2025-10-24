@@ -8,6 +8,7 @@ import { API_PATHS } from '../../utils/apiPath';
 import moment from 'moment';
 import InfoCard from '../../components/context/Cards/InfoCard';
 import { addThousandsSeparator } from '../../utils/helper';
+import { LuArrowRight } from 'react-icons/lu';
 
 function Dashboard() {
   useUserAuth();
@@ -37,6 +38,11 @@ function Dashboard() {
       
     }
   };
+
+
+  const onSeeMore = () =>{
+    navigate("/admin/tasks")
+  }
 
 
   useEffect(() => {
@@ -95,6 +101,20 @@ function Dashboard() {
           )}
           color = "bg-green-500"
           />
+        </div>
+      </div>
+
+      <div className='grid grid-cols-1 md:grid-cols-2  gap-6 md:my-6'>
+        <div className='md:col-span-2'>
+          <div className='card'>
+            <div className='flex items-center justify-between'>
+              <h5 className='card-btn' onClick={onSeeMore}>Recent Tasks</h5>
+
+              <button>See All <LuArrowRight className='text-base'/></button>
+            </div>
+
+            <TaskListTable tableData={dashboardData?.recentTasks || [] }/>
+          </div>
         </div>
       </div>
     </DashBoardLayout>
