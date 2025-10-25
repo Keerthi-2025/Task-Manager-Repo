@@ -8,6 +8,7 @@ import {useLocation, useNavigate} from 'react-router-dom'
 import moment from "moment";
 import { LuTrash2 } from 'react-icons/lu';
 import DashBoardLayout from "../../components/layouts/DashBoardLayout"
+import SelectDropdown from '../../components/layouts/SelectDropdown';
 
 
 function CreateTask() {
@@ -95,6 +96,23 @@ function CreateTask() {
               value={taskData.title}
               onChange={({target})=> handleValueChange("title", target.value)}/>
             </div>
+
+            <div className='mt-3'>
+              <label className='text-xs font-medium text-slate-600'>Description</label>
+            </div>
+
+            <textarea placeholder='Describe Task' className='form-input' rows={4} value={taskData.description} onChange={({target})=> handleValueChange("description", target.value)}/>
+
+          </div>
+          <div>
+            <label>Priority</label>
+
+            <SelectDropdown options={PRIORITY_DATA} value={taskData.priority} onChange={(value)=> handleValueChange("priority", value)}
+            placeholder="Select Priority"/>
+          </div>
+
+          <div>
+
           </div>
         </div>
       </div>
