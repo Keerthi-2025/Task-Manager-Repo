@@ -35,5 +35,11 @@
     @apply flex items-center gap-3 font-semibold text-gray-700 text-[12px]  px-4 py-1.5 cursor-pointer rounded-full bg-blue-300;
   }
 
+  .form-card{
+    @apply bg-white p-6 rounded-lg shadow-md shadow-gray-100 border border-gray-200;
+  }
+  .form-input{
+    @apply w-full text-sm text-black outline-none bg-white border border-slate-100 px-2 py-3 rounded-md mt-2 placeholder:text-gray-500
+  }
   
 }

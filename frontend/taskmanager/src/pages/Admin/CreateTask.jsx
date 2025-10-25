@@ -77,20 +77,21 @@ function CreateTask() {
               <h2 className='text-xl md:text-xl font-medium'>{taskId ? "Update Task" : "Create Task"}</h2>
 
               {taskId && (
-                <button className='' onClick={()=> setOpenDeleteAlert(true)}>
+                <button className='flex items-center gap-1.5 text-2xl font-medium text-rose-500 bg-rose-400 rounded-full px-3 py-1 border border-rose-100
+                hover:border-rose-300 cursor-pointer' onClick={()=> setOpenDeleteAlert(true)}>
 
-                  <LuTrash2 className=''/>Delete
+                  <LuTrash2 className='text-base'/>Delete
 
                 </button>
               )}
             </div>
 
             <div>
-              <label className=''>Task Title</label>
+              <label className='text-xs font-medium text-slate-600'>Task Title</label>
 
               <input
               placeholder='Create App UI'
-              className=''
+              className='form-input'
               value={taskData.title}
               onChange={({target})=> handleValueChange("title", target.value)}/>
             </div>
