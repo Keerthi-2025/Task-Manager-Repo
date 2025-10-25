@@ -84,6 +84,16 @@ function CreateTask() {
                 </button>
               )}
             </div>
+
+            <div>
+              <label className=''>Task Title</label>
+
+              <input
+              placeholder='Create App UI'
+              className=''
+              value={taskData.title}
+              onChange={({target})=> handleValueChange("title", target.value)}/>
+            </div>
           </div>
         </div>
       </div>
