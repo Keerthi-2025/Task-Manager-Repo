@@ -7,6 +7,7 @@ import toast from "react-hot-toast"
 import {useLocation, useNavigate} from 'react-router-dom'
 import moment from "moment";
 import { LuTrash2 } from 'react-icons/lu';
+import DashBoardLayout from "../../components/layouts/DashBoardLayout"
 
 
 function CreateTask() {
@@ -68,7 +69,26 @@ function CreateTask() {
 
 
   return (
-    <div>CreateTask</div>
+    <DashBoardLayout activeMenu="Create Task">
+      <div className=''>
+        <div className=''>
+          <div className=''>
+            <div className=''>
+              <h2 className=''>{taskId ? "Update Task" : "Create Task"}</h2>
+
+              {taskId && (
+                <button className='' onClick={()=> setOpenDeleteAlert(true)}>
+
+                  <LuTrash2 className=''/>Delete
+
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </DashBoardLayout>
+    
   )
 }
 
