@@ -34,7 +34,39 @@ function CreateTask() {
     setTaskData((prevData)=>({...prevData, [key]:value}));
   };
 
-  
+
+  const clearData = () =>{
+    //reset form
+    setTaskData({
+       title:"",
+    description:"",
+    priority:"Low",
+    dueDate:null,
+    assignedTo:"",
+    todoChecklist:[],
+    attachments:[],
+    });
+  };
+
+
+  //create Task
+  const CreateTask = async () =>{};
+
+  //update Task
+  const updateTask = async () => {};
+
+  //get task info by id
+  const getTaskDetailsByID = async () =>{};
+
+  //delete Task
+  const deleteTask = async () =>{};
+
+  const handleSubmit = async () =>{};
+
+
+
+
+
   return (
     <div>CreateTask</div>
   )
