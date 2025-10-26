@@ -11,7 +11,7 @@
 // } from "recharts";
 
 // function CustomBarChart({ data }) {
-//   // ✅ Define colors based on priority
+//   //  Define colors based on priority
 //   const getBarColor = (entry) => {
 //     switch (entry?.priority) {
 //       case "Low":
@@ -25,7 +25,7 @@
 //     }
 //   };
 
-//   // ✅ Custom tooltip component
+//   //  Custom tooltip component
 //   const CustomTooltip = ({ active, payload }) => {
 //     if (active && payload && payload.length) {
 //       const { priority, count } = payload[0].payload;
@@ -47,7 +47,7 @@
 //     <div className="bg-white mt-6">
 //       <ResponsiveContainer width="100%" height={300}>
 //         <BarChart data={data} barSize={50}>
-//           {/* ✅ Proper grid setup */}
+//           {/*  Proper grid setup */}
 //           <CartesianGrid strokeDasharray="3 3" vertical={false} />
 
 //           <XAxis
@@ -57,10 +57,10 @@
 //           />
 //           <YAxis tick={{ fontSize: 12, fill: "#555" }} stroke="none" />
 
-//           {/* ✅ Tooltip now correctly renders custom content */}
+//           {/*  Tooltip now correctly renders custom content */}
 //           <Tooltip content={<CustomTooltip />} cursor={{ fill: "transparent" }} />
 
-//           {/* ✅ Fixed Bar with Cell mapping */}
+//           {/*  Fixed Bar with Cell mapping */}
 //           <Bar dataKey="count" nameKey="priority" radius={[10, 10, 0, 0]}>
 //             {data.map((entry, index) => (
 //               <Cell key={`cell-${index}`} fill={getBarColor(entry)} />
@@ -86,7 +86,7 @@ import {
 } from "recharts";
 
 function CustomBarChart({ data }) {
-  // ✅ Color mapping
+  //  Color mapping
   const getBarColor = (entry) => {
     switch (entry?.priority) {
       case 'Low':
@@ -100,7 +100,7 @@ function CustomBarChart({ data }) {
     }
   };
 
-  // ✅ Custom tooltip
+  //  Custom tooltip
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       const { priority, count } = payload[0].payload;
@@ -127,7 +127,7 @@ function CustomBarChart({ data }) {
 
           <Bar dataKey="count" radius={[10, 10, 0, 0]}>
             {data.map((entry, index) => (
-              // ✅ FIX: return each <Cell>
+              // FIX: return each <Cell>
               <Cell key={`cell-${index}`} fill={getBarColor(entry)} />
             ))}
           </Bar>
