@@ -103,13 +103,15 @@ function CreateTask() {
 
             <textarea placeholder='Describe Task' className='form-input' rows={4} value={taskData.description} onChange={({target})=> handleValueChange("description", target.value)}/>
 
-          </div>
-          <div>
-            <label>Priority</label>
+
+               <label>Priority</label>
 
             <SelectDropdown options={PRIORITY_DATA} value={taskData.priority} onChange={(value)=> handleValueChange("priority", value)}
             placeholder="Select Priority"/>
           </div>
+         
+
+         
 
           <div>
 
