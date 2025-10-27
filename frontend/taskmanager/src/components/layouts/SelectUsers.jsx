@@ -69,7 +69,7 @@ function SelectUsers({selectedUsers, setSelectedUsers}) {
               alt={user.name}
               className='w-10 h-10 rounded-lg'/> */}
 
-              {user.profileImageUrl ? (
+              {user.profileImageUrl ? (     //if img is not there then default their Name Letter is shown 
   <img
     src={user.profileImageUrl}
     alt={user.name}
@@ -96,6 +96,11 @@ function SelectUsers({selectedUsers, setSelectedUsers}) {
               </div>
           ))}
 
+        </div>
+
+        <div className='flex justify-end gap-4 pt-4'>
+          <button className='card-btn'>CANCEL</button>
+          <button className='card-btn-fill'>DONE</button>
         </div>
 
       </Model>
