@@ -108,7 +108,21 @@ function CreateTask() {
 
             <SelectDropdown options={PRIORITY_DATA} value={taskData.priority} onChange={(value)=> handleValueChange("priority", value)}
             placeholder="Select Priority"/>
+
+             <div className='col-span-6 md:col-span-4'>
+            <label className='text-xs font-medium text-slate-600'>Due Date</label>
           </div>
+
+          <input
+          placeholder='Create App UI'
+          className='form-input'
+          value={taskData.dueDate}
+          onChange={({target})=> handleValueChange("dueDate", target.value)} 
+          type='date'/>
+
+          </div>
+
+         
          
 
 
