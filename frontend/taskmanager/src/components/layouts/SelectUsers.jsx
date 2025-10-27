@@ -36,7 +36,16 @@ function SelectUsers({selectedUsers, setSelectedUsers}) {
 
   useEffect(() => {
     getAllUsers();
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    if(selectedUsers.length === 0){
+      setTempSelectedUsers([]);
+    }
+  
+    return () => {}
+  }, [selectedUsers]);
+  
   
   return (
     <div>Users</div>
