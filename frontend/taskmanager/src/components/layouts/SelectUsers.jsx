@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react'
+import React, { useEffect, useId, useState } from 'react'
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPath';
 
@@ -24,6 +24,20 @@ function SelectUsers({selectedUsers, setSelectedUsers}) {
     setTempSelectedUsers((prev)=>
     prev.includes(userId)? prev.filter((id)=> id!== userId): [...prev, userId]);
   };
+
+  const handleAssign = () =>{
+    setSelectedUsers(tempSelectedUsers);
+    setIsModalOpen(false);
+  };
+
+  const selectedUserAvatars = allUsers
+  .filter((user) =>selectedUsers.includes(user._id))
+  .map((user)=>user.profileImageUrl);
+
+  useEffect(() => {
+    getAllUsers();
+  }, [])
+  
   return (
     <div>Users</div>
   )
