@@ -12,19 +12,19 @@ function SelectDropdown({options,value, onChange, placeholder}) {
   }
   return (
     
-    <div className=''>
+    <div className='relative w-full'>
       {/* //Dropdown button */}
-      <button className='' onClick={()=> setIsOpen(!isOpen)}>
+      <button className='w-full text-sm text-black outline-none bg-white border border-slate-200 px-2 py-2 rounded-md mt-2 flex justify-between items-center' onClick={()=> setIsOpen(!isOpen)}>
         {value ? options.find((opt)=> opt.value === value)?.label : placeholder}
-        <span className=''>{isOpen ? <LuChevronDown className=''/> : <LuChevronDown/>
+        <span className='ml-2'>{isOpen ? <LuChevronDown classNarotate-180me=''/> : <LuChevronDown/>
         }</span>
       </button>
 
       {/* DropwDown menu */}
         {isOpen && (
-          <div className=''>
+          <div className='absolute w-full bg-white border border-slate-200 rounded-md mt-1 shadow-md z-10 '>
             {options.map((option)=>(
-              <div className='' key={option.value} onClick={()=> handleSelect(option.value)}> {option.value}
+              <div className='px-3 py-2 cursor-pointer hover:bg-gray-200' key={option.value} onClick={()=> handleSelect(option.value)}> {option.value}
                 </div>
             ))}
             </div>
