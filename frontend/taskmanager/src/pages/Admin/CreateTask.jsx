@@ -9,6 +9,7 @@ import moment from "moment";
 import { LuTrash2 } from 'react-icons/lu';
 import DashBoardLayout from "../../components/layouts/DashBoardLayout"
 import SelectDropdown from '../../components/layouts/SelectDropdown';
+import SelectUsers from '../../components/layouts/SelectUsers';
 
 
 function CreateTask() {
@@ -120,9 +121,21 @@ function CreateTask() {
           onChange={({target})=> handleValueChange("dueDate", target.value)} 
           type='date'/>
 
+           <div className='col-span-12 md:col-span-3'>
+            <label className='text-xs font-medium text-slate-600'>Assign To</label>
+
+            <SelectUsers
+            selectedUsers = {taskData.assignedTo}
+            setSelectedUsers= {(value)=>{handleValueChange("assignedTo", value);
+              
+            }}/>
+          </div>
+
           </div>
 
          
+
+          
          
 
 
