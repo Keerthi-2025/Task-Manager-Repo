@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Model({children, isOpen, isClose, title, }) {
+function Model({children, isOpen, onClose, title }) {
     
     if(!isOpen) return null;
 
