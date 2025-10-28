@@ -3,6 +3,7 @@ import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPath';
 import { LuUser } from 'react-icons/lu';
 import Model from '../Model';
+import AvatarGroup from '../AvatarGroup';
 
 function SelectUsers({selectedUsers, setSelectedUsers}) {
   const[allUsers, setAllUsers]= useState([]);
@@ -53,8 +54,16 @@ function SelectUsers({selectedUsers, setSelectedUsers}) {
     <div className='space-y-4 mt-2'>
       {selectedUserAvatars.length === 0 && (
         <button className='card-btn' onClick={()=> setIsModalOpen(true)}><LuUser className='text-sm'/>Add Members</button>
-      )}
+      )};
 
+
+      {selectedUserAvatars.length > 0 && (
+        <div className='cursor-pointer' onClick={()=>setIsModalOpen(true)}>
+          <AvatarGroup avatars={selectedUserAvatars} mixVisible={3}/>
+
+        </div>
+      )}
+      
       <Model
       isOpen={isModalOpen}
       onClose={() => setIsModalOpen(false)}
