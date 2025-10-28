@@ -8,49 +8,50 @@ function TodoInputList({todoChecklist, setToDOList}) {
     //function to handle adding option
     const handleAddOption =() =>{
         if(option.trim()){
-            setToDOList([...todoList, option.trim()]);
+            setToDOList([...todoChecklist, option.trim()]);
+            setOption(""); 
         }
     };
 
     //function to handle delete option
     const handleDeleteOption =(index)=>{
-        const updatedArr = todoList.filter((_, idx) => idx !== index);
+        const updatedArr = todoChecklist.filter((_, idx) => idx !== index);
         setToDOList(updatedArr);
     };
 
   return (
     <div>
-        {todoList.map((item, index)=>{
+        {todoChecklist.map((item, index)=>(
             <div
             key={item}
-            className=''>
+            className='flex justify-between bg-gray-50 border border-gray-100 px-3 py-2 rounded-md mb-3 mt-2'>
 
-                <p className=''><span className=''>
-                    {index <9 ? `0${index + 1}` : index + 1}</span>{item}</p>
+                <p className='text-xs text-black'>
+                    <span className='text-gray-400 font-semibold mr-2'>{index <9 ? `0${index + 1}` : index + 1}</span>{item}</p>
 
-                    <button className=''
+                    <button className='cursor-pointer'
                     onClick={()=>{
                         handleDeleteOption(index);
                     }}>
 
-                        <HiOutlineTrash className=''/>
+                        <HiOutlineTrash className='text-lg text-red-500'/>
 
                     </button>
             </div>
 
-        })}
+        ))}
 
-        <div className=''>
+        <div className='flex items-center gap-5 mt-4'>
 
             <input
             type='text'
             placeholder='Enter Task'
             value={option}
             onChange={({target})=> setOption(target.value)}
-            className=''/>
+            className='w-full text-[13px] text-black outline-none border bg-white border-gray-100 px-3 py-2'/>
 
-            <button className='' onClick={handleAddOption}>
-                <HiMiniPlus className=''/>
+            <button className='card-btn text-nowrap' onClick={handleAddOption}>
+                <HiMiniPlus className='text-sm text-gray-400 font-semibold mr-2'/>
             </button>
 
         </div>
