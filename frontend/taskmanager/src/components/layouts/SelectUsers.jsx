@@ -7,7 +7,7 @@ import AvatarGroup from '../AvatarGroup';
 
 function SelectUsers({selectedUsers, setSelectedUsers}) {
   const[allUsers, setAllUsers]= useState([]);
-  const[isModalOpen, setIsModalOpen] = useState(true);
+  const[isModalOpen, setIsModalOpen] = useState(false);
   const[tempSelectedUsers, setTempSelectedUsers]= useState([]);
 
   const getAllUsers = async () =>{
@@ -54,7 +54,7 @@ function SelectUsers({selectedUsers, setSelectedUsers}) {
     <div className='space-y-4 mt-2'>
       {selectedUserAvatars.length === 0 && (
         <button className='card-btn' onClick={()=> setIsModalOpen(true)}><LuUser className='text-sm'/>Add Members</button>
-      )};
+      )}
 
 
       {selectedUserAvatars.length > 0 && (
@@ -63,7 +63,7 @@ function SelectUsers({selectedUsers, setSelectedUsers}) {
 
         </div>
       )}
-      
+
       <Model
       isOpen={isModalOpen}
       onClose={() => setIsModalOpen(false)}
@@ -107,10 +107,16 @@ function SelectUsers({selectedUsers, setSelectedUsers}) {
 
         </div>
 
-        <div className='flex justify-end gap-4 pt-4'>
+        {/* <div className='flex justify-end gap-4 pt-4'>
           <button className='card-btn'>CANCEL</button>
           <button className='card-btn-fill'>DONE</button>
-        </div>
+        </div> */}
+
+        <div className='flex justify-end gap-4 pt-4'>
+  <button className='card-btn' onClick={() => setIsModalOpen(false)}>CANCEL</button>
+  <button className='card-btn-fill' onClick={handleAssign}>DONE</button>
+</div>
+
 
       </Model>
     </div>

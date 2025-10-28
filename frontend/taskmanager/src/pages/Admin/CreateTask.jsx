@@ -23,7 +23,7 @@ function CreateTask() {
     description:"",
     priority:"",
     dueDate:"",
-    assignedTo:"",
+    assignedTo:[],
     todoChecklist:[],
     attachments:[],
   });
