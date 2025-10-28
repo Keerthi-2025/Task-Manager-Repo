@@ -1,6 +1,8 @@
 import React from 'react'
 
-function TodoInputList() {
+import { HiMiniPlus, HiOutlineTrash} from "react-icons/hi2"
+
+function TodoInputList({todoChecklist, setToDOList}) {
   return (
     <div>TodoInputList</div>
   )

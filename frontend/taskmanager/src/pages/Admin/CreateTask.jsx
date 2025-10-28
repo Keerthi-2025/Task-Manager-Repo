@@ -10,6 +10,7 @@ import { LuTrash2 } from 'react-icons/lu';
 import DashBoardLayout from "../../components/layouts/DashBoardLayout"
 import SelectDropdown from '../../components/layouts/SelectDropdown';
 import SelectUsers from '../../components/layouts/SelectUsers';
+import TodoInputList from '../../components/Input/TodoInputList';
 
 
 function CreateTask() {
@@ -130,7 +131,14 @@ function CreateTask() {
               
             }}/>
 
-            
+            <div className='mt-3'>
+              <label className='text-xs font-medium text-slate-600'>ToDO Checklist</label>
+
+              <TodoInputList 
+              todoChecklist={taskData?. todoChecklist}
+              setToDOList={(value)=> handleValueChange("todoCheckList", value)}/>
+
+            </div>
           </div>
 
           </div>
