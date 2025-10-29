@@ -137,7 +137,7 @@ function CreateTask() {
 
               <TodoInputList 
               todoChecklist={taskData?. todoChecklist}
-              setToDOList={(value)=> handleValueChange("todoCheckList", value)}/>
+              setToDOList={(value)=> handleValueChange("todoChecklist", value)}/>
 
               <div className='mt-3'>
                 <label className='text-xs font-medium text-slate-600'>Add Attachments</label>
@@ -150,14 +150,20 @@ function CreateTask() {
             </div>
           </div>
 
+          {error && (
+            <p className='text-xs font-medium text-red-500'>{error}</p>
+          )}
+
+          <div className='flex justify- mt-7'>
+            <button className='add-btn'
+            onClick={handleSubmit}
+            disabled={loading}
+            >
+              {taskId ? "UPDATE TASK" : "CREATE TASK"}
+            </button>
           </div>
 
-         
-
-          
-         
-
-
+          </div>
 
           
         </div>
