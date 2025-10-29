@@ -55,7 +55,33 @@ function CreateTask() {
 
 
   //create Task
-  const CreateTask = async () =>{};
+  const CreateTask = async () =>{
+    setLoading(true);
+
+    try {
+      const todolist = taskData.todoChecklist?.map((item)=>({
+        text:item,
+        completed:false,
+      }));
+
+      const  response = await axiosInstance.post(API_PATHS.TASKS.CREATE_TASK,{
+        ...taskData,
+        dueDate: new Date(taskData.dueDate).toISOString(),
+        todoChecklist:todolist,
+      });
+      
+      toast.success("Task created successfully");
+
+      clearData();
+
+      
+    } catch (error) {
+      console.log("Error craeting the Task", error);
+      setLoading(false);
+    }finally{
+      setLoading(false);
+    }
+  };
 
   //update Task
   const updateTask = async () => {};
