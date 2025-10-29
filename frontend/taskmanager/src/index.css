@@ -45,4 +45,8 @@
   .card-btn-fill{
     @apply flex items-center gap-3 text-[12px] font-medium  text-white px-4 py-1.5 bg-blue-950 rounded-md cursor-pointer;
   }
+
+  .add-btn{
+    @apply w-full flex items-center justify-center gap-1.5 md:text-sm font-medium text-blue-950 bg-blue-50 border border-blue-100 rounded-lg px-4 py-2 cursor-pointer;
+  }
 }

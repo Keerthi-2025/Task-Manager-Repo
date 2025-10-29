@@ -66,7 +66,45 @@ function CreateTask() {
   //delete Task
   const deleteTask = async () =>{};
 
-  const handleSubmit = async () =>{};
+  const handleSubmit = async () =>{
+    setError(null);
+  
+
+  //input validation
+  if(!taskData.title.trim()){
+    setError("Title is required");
+    return;
+  }
+
+  if(!taskData.description.trim()){
+    setError("Description is required");
+}
+
+if(!taskData.dueDate){
+    setError("Due Date is required");
+    return;
+}
+
+if(taskData.assignedTo?.length === 0){
+  setError("Task not assigned to any member");
+  return;
+}
+
+if(taskData.todoChecklist?. length === 0){
+  setError("Add atleast one todo Task");
+  return;
+}
+
+if(taskId){
+  updateTask();
+  return;
+}
+
+CreateTask();
+}
+
+
+  
 
 
 
