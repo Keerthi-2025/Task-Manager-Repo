@@ -138,6 +138,14 @@ function CreateTask() {
               todoChecklist={taskData?. todoChecklist}
               setToDOList={(value)=> handleValueChange("todoCheckList", value)}/>
 
+              <div className='mt-3'>
+                <label className='text-xs font-medium text-slate-600'>Add Attachments</label>
+              </div>
+
+              <AddAttachmentsInput
+              attachments={taskData?.attachments}
+              setAttachments={(value)=> handleValueChange("attachments", value)}/>
+
             </div>
           </div>
 
