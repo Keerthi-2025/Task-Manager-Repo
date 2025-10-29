@@ -11,6 +11,7 @@ import DashBoardLayout from "../../components/layouts/DashBoardLayout"
 import SelectDropdown from '../../components/layouts/SelectDropdown';
 import SelectUsers from '../../components/layouts/SelectUsers';
 import TodoInputList from '../../components/Input/TodoInputList';
+import AddAttachmentsInput from '../../components/Input/AddAttachmentsInput';
 
 
 function CreateTask() {
