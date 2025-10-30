@@ -61,15 +61,28 @@ useEffect(() => {
     
     <DashBoardLayout activeMenu={ManageTasks}>
       <div className='my-5'>
-        <div className='flex flex-col md:flex-row md:items-center justify-between'>
+        <div className='flex flex-col lg:flex-row lg:items-center justify-between'>
           <div className=' flex items-center justify-between gap-3'>
             <h2 className='text-xl md:text-xl font-medium'>My Tasks</h2>
 
             <button
-            className='flex md:hidden donwload-btn'
+            className='flex lg:hidden donwload-btn'
             onClick={handleDownloadReport}>
               <LuFileSpreadsheet className='text-lg'/>Download Report</button>
           </div>
+
+          {allTasks?.length > 0 &&(
+            <div>
+              <TaskStatusTabs
+              tabs={tabs}
+              activeMenu={filtersStatus}
+              setActiveTab ={setFiltersStatus}/>
+
+              <button className='hidden md:flex donwload-btn' onClick={handleDownloadReport}>
+                <LuFileSpreadsheet className='text-lg'/>Download Report</button>
+
+            </div>
+          )}
         </div>
       </div>
     </DashBoardLayout>
