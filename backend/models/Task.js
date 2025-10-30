@@ -9,21 +9,21 @@ const todoSchema = new mongoose.Schema(
 
 
 const taskSchema = new mongoose.Schema(
-    {
-        title:{type:String, required:true},
-       description:{type:String, required:true},
-        priority:{type:String, enum:["high", "low", "medium"], default:"medium"},
-        status:{type:String, enum:["Pending", "In Progress", "Completed"], default:"Pending"},
-        dueDate:{type:Date, required:true},
-        attachements:{type:String},
-        assignedTo:{type:mongoose.Schema.Types.ObjectId, ref:"User"},
-        createdBy:{type:mongoose.Schema.Types.ObjectId, ref:"User"},
-        todoChecklist:[todoSchema],
-        progress:{type:Number, default:0}
+  {
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+    priority: { type: String, enum: ["High", "Low", "Medium"], default: "Medium" },
+    status: { type: String, enum: ["Pending", "In Progress", "Completed"], default: "Pending" },
+    dueDate: { type: Date, required: true },
+    attachments: [{ type: String }],
+    assignedTo: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    todoChecklist: [todoSchema],
+    progress: { type: Number, default: 0 },
+  },
+  { timestamps: true }
+);
 
-    },
-    {timestamps:true}
-)
 
 // module.exports = mongoose.model("User", taskSchema);
 module.exports = mongoose.models.Task || mongoose.model("Task", taskSchema);
