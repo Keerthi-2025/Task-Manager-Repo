@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useEffect, useState } from 'react'
 
 import {PRIORITY_DATA} from "../../utils/data"
 import axiosInstance  from "../../utils/axiosInstance";
@@ -12,6 +12,8 @@ import SelectDropdown from '../../components/layouts/SelectDropdown';
 import SelectUsers from '../../components/layouts/SelectUsers';
 import TodoInputList from '../../components/Input/TodoInputList';
 import AddAttachmentsInput from '../../components/Input/AddAttachmentsInput';
+import DeleteAlert from '../../components/DeleteAlert';
+import Model from '../../components/Model';
 
 
 function CreateTask() {
@@ -84,7 +86,36 @@ function CreateTask() {
   };
 
   //update Task
-  const updateTask = async () => {};
+  const updateTask = async () => {
+    setLoading(true);
+
+    try {
+      const todolist = taskData.todoChecklist?.map((item)=>{
+        const prevTodoChecklist = currentTask?.todoChecklist || [];
+        const matchedTask = prevTodoChecklist.find((task)=>task.text == item);
+
+        return{
+          text:item,
+          completed:matchedTask ? matchedTask.completed : false,
+        };
+      });
+
+      const response = await axiosInstance.put(API_PATHS.TASKS.UPDATE_TASK(taskId),{
+        ...taskData,
+        dueDate: new Date(taskData.dueDate).toISOString(),
+        todoChecklist: todolist,
+      });
+
+      toast.success("Task updated successfully");
+      
+    } catch (error) {
+
+      console.log("Error creating task", error);
+      setLoading(false);
+    }finally{
+      setLoading(false);
+    }
+  };
 
   //get task info by id
   const getTaskDetailsByID = async () =>{
@@ -113,7 +144,18 @@ function CreateTask() {
   };
 
   //delete Task
-  const deleteTask = async () =>{};
+  const deleteTask = async () =>{
+    try {
+      await axiosInstance.delete(API_PATHS.TASKS.DELETE_TASK(taskId));
+
+      setOpenDeleteAlert(false);
+      toast.success("Expense details deleted successfully");
+      navigate('/admin/tasks');
+      
+    } catch (error) {
+      console.log("Error deleting expense",error.response?.data?.message || error.message);
+    }
+  };
 
   useEffect(() => {
     if(taskId)
@@ -263,6 +305,23 @@ CreateTask();
           
         </div>
       </div>
+
+
+     {openDeleteAlert && (
+  <Model
+    isOpen={openDeleteAlert}
+    onClose={() => setOpenDeleteAlert(false)}
+    title="Delete Task"
+  >
+    <DeleteAlert
+      content="Are you sure you want to delete this task?"
+      onDelete={deleteTask}
+      onCancel={() => setOpenDeleteAlert(false)}
+    />
+  </Model>
+)}
+
+        
     </DashBoardLayout>
     
   )
