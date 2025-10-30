@@ -87,10 +87,41 @@ function CreateTask() {
   const updateTask = async () => {};
 
   //get task info by id
-  const getTaskDetailsByID = async () =>{};
+  const getTaskDetailsByID = async () =>{
+    try {
+      const response = await axiosInstance.get(API_PATHS.TASKS.GET_TASK_BY_ID(taskId));
+
+      if(response.data){
+        const taskInfo = response.data;
+        setCurrentTask(taskInfo);
+
+        setTaskData((prevData)=>({
+          title:taskInfo.title,
+          description:taskInfo.description,
+          priority:taskInfo.priority,
+          dueDate:taskInfo.dueDate ? moment(taskInfo.dueDate).format("YYYY-MM-DD"):null, assignedTo:taskInfo.assignedTo?.map((item)=> item?._id) || [], 
+          todoChecklist:taskInfo.todoChecklist?.map((item)=> item?.text) || [],
+          attachments:taskInfo?.attachments || []
+          
+        }))
+      }
+      
+    } catch (error) {
+      console.log("Error fetching users", error);
+      
+    }
+  };
 
   //delete Task
   const deleteTask = async () =>{};
+
+  useEffect(() => {
+    if(taskId)
+      getTaskDetailsByID(taskId)
+  
+    return () => { }
+  }, [taskId])
+  
 
   const handleSubmit = async () =>{
     setError(null);
