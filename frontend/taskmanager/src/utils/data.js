@@ -55,12 +55,6 @@ export const SIDE_MENU_USER_DATA = [
     icon: LuClipboardCheck,
     path: "/user/tasks",
   },
-  {
-    id: "03",
-    label: "Create Tasks",
-    icon: LuSquarePlus,
-    path: "/admin/create-tasks",
-  },
   
   {
     id: "04",

@@ -4,7 +4,6 @@ import DashBoardLayout from '../../components/layouts/DashBoardLayout';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPath';
-import { LuFileSpreadsheet } from 'react-icons/lu';
 import TaskStatusTabs from '../../components/Input/TaskStatusTabs';
 import TaskCard from '../../components/context/Cards/TaskCard';
 
@@ -52,7 +51,7 @@ navigate(`/user/task-details/${taskId}`);
   }, [filtersStatus]);
 
   return (
-    <DashBoardLayout activeMenu={'ManageTasks'}>
+    <DashBoardLayout activeMenu={'MyTasks'}>
       <div className='my-5'>
         <div className='flex flex-col lg:flex-row lg:items-center justify-between'>
             <h2 className='text-xl md:text-xl font-medium'>My Tasks</h2>
