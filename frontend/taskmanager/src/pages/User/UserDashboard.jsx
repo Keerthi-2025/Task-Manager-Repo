@@ -73,7 +73,7 @@ function UserDashboard() {
   if (!dashboardData) return <p className="p-4">Loading dashboard...</p>;
 
   return (
-    <DashBoardLayout activeMenu={"Dashboard"}>
+    <DashBoardLayout activeMenu={"UserDashboard"}>
       {/*  Dashboard Header */}
       <div className="card my-5">
         <div>

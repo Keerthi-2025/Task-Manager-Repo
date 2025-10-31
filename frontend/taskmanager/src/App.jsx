@@ -41,7 +41,7 @@ function App() {
         </Route>
 
         <Route element={<PrivateRoute allowedRoles={["user"]}/>}>
-           <Route path='/user/dashboard' element={<UserDashboard/>}/>
+           <Route path='/user/userdashboard' element={<UserDashboard/>}/>
            <Route path='/user/tasks' element={<MyTasks/>}/>
            <Route path='/user/task-details/:id' element={<ViewTaskDetails/>}/>
         </Route>  
