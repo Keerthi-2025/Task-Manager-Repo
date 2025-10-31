@@ -82,7 +82,21 @@ function ManageUsers() {
   };
 
   const handleDownloadReport = async () => {
-    toast("Download feature coming soon!");
+
+    try {
+      const response = await axiosInstance.get(API_PATHS.REPORTS.EXPORT_UERS,{
+        responseType:"blob",
+      });
+
+      //create URL for the blob
+      const url =
+      
+    } catch (error) {
+      
+    }
+
+
+    // toast("Download feature coming soon!");
   };
 
   useEffect(() => {

@@ -30,5 +30,14 @@ TASKS:{
     UPDATE_TODO_CHECKLIST: (taskId) => `/api/tasks/${taskId}/todo`,     //update Todo checklist
 },
 
+REPORTS:{
+    EXPORT_TASKS:"/api/reports/export/tasks",       //donwload all tasks as Excel
+    EXPORT_USERS:"/api/reports/export/users",       //donwload user-task report
+},
+
+IMAGE:{
+    UPLOAD_IMAGE:"/api/auth/upload-image",
+}
+
 
 };
