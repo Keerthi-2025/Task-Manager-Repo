@@ -49,7 +49,28 @@ navigate('/admin/create-task', { state: { taskId: taskData._id } });
 
   // download task report
   const handleDownloadReport = async () => {
-    // implement download later
+   
+     try {
+      const response = await axiosInstance.get(API_PATHS.REPORTS.EXPORT_TASKS,{
+        responseType:"blob",
+      });
+
+      //create URL for the blob
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("downlaod","user_details.xlsx");
+      document.body.appendChild(link);
+      link.click();
+      link.parentNode.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      
+    } catch (error) {
+      console.log("Error downlaoding expense details", error);
+      toast.error("Failed to download expense details. Please try again");
+      
+    }
+
   };
 
   useEffect(() => {
