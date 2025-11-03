@@ -158,5 +158,17 @@ const TodoChecklist=({text, isChecked, onChange}) =>{
 }
 
  const Attachment =({link, index, onClick})=>{
-  
+    return <div className='flex justify-between bg-gray-50 border-gray-100 py-2 rounded-md mb-3 mt-2  cursor-pointer'
+    onClick={onClick}>
+
+      <div>
+        <span>{index < 9 ? `0${index + 1}` : index + 1}</span>
+
+        <p className=''>{linl}</p>
+      </div>
+
+      <LuSquareArrowUpRight className=''/>
+
+
+    </div>
  }
