@@ -211,10 +211,14 @@ function ViewTaskDetails() {
   };
 
   const updateTodoChecklist = async (index) => {
-    // update checklist logic here
+   
   };
 
   const handleLinkClick = (link) => {
+    if(!/^https?:\/\//i.test(link)){
+      link="https://" + link;  //default to HTTPS
+
+    }
     window.open(link, "_blank");
   };
 
