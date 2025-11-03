@@ -77,7 +77,7 @@ function ViewTaskDetails() {
               </div>
               
 
-              <div className='grid grid-cols-12 gap-4 mt-4'>
+              < div className='grid grid-cols-12 gap-4 mt-4'>
                 <div className='col-span-6 md:col-span-4'>
                   <InfoBox label = "Priority" value={task?.priority}/>
                 </div>
@@ -94,7 +94,24 @@ function ViewTaskDetails() {
                   ))}
                 </div>
 
+              {task?.attachments?.length > 0 && (
+  <div className='mt-2'>
+    <label className='text-xs font-medium text-slate-500'>Attachments</label>
+
+    {task.attachments.map((link, index) => (
+      <Attachment
+        key={`link_${index}`}
+        link={link}
+        index={index}
+        onClick={() => handleLinkClick(link)}
+      />
+    ))}
+  </div>
+)}
+
                 
+
+
 
                 <div className='cols-span-6 md:col-span-4'>
                   <InfoBox 
@@ -139,3 +156,7 @@ const TodoChecklist=({text, isChecked, onChange}) =>{
     <p className='text-[13px] text-gray-800'>{text}</p>
   </div>
 }
+
+ const Attachment =({link, index, onClick})=>{
+  
+ }
