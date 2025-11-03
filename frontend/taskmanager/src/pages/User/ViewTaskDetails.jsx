@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom'
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPath';
 import DashBoardLayout from '../../components/layouts/DashBoardLayout';
+import moment from 'moment';
+import AvatarGroup from "../../components/AvatarGroup";
+import { LuSquareArrowUpRight } from 'react-icons/lu';
 
 function ViewTaskDetails() {
 
@@ -63,7 +66,7 @@ function ViewTaskDetails() {
        { task && (<div className='grid grid-cols-1 md:grid-cols-4 mt-4'>
           <div className='form-card col-span-3'>
             <div className='flex items-center justify-between'>
-              <h2 className='text-xl md:text-xl font-medium'>{task?.title}</h2>
+              <h2 className='text-sm md:text-xl font-medium'>{task?.title}</h2>
 
               <div className={`text-[13px] font-medium ${getStatusTagColor(task?.status)} px-4 py-0.5 rounded`}>
                 {task?.status}
@@ -71,6 +74,39 @@ function ViewTaskDetails() {
 
               <div className='mt-4'>
                 <InfoBox label = "Description" value={task?.description}/> 
+              </div>
+              
+
+              <div className='grid grid-cols-12 gap-4 mt-4'>
+                <div className='col-span-6 md:col-span-4'>
+                  <InfoBox label = "Priority" value={task?.priority}/>
+                </div>
+
+                <div className='mt-2'>
+                  <label className='text-xs font-medium text-slate-500'>Todo Checklist</label>
+
+                  {task?.todoChecklist?.map((item, index) =>(
+                    <TodoChecklist
+                    key={`todo_${index}`}
+                    text ={item.text}
+                    isChecked={item?.completed}
+                    onChange={()=> updateTodoChecklist(index)}/>
+                  ))}
+                </div>
+
+                
+
+                <div className='cols-span-6 md:col-span-4'>
+                  <InfoBox 
+                  label="Due Date"
+                  value={task?.dueDate ? moment(task?.dueDate).format("Do MMM YYYY"): "N/A"}/>
+                </div>
+
+                <div className='cols-span-6 md:col-span-4'>
+                  <label className='text-xs font-medium text-slate-500'>Assigned To</label>
+
+                  <AvatarGroup avatars = {task?.assignedTo?.map((item)=> item?.profileImageUrl) || []} maxVisible={5}/>
+                </div>
               </div>
             </div>
           </div>
@@ -83,5 +119,23 @@ function ViewTaskDetails() {
 export default ViewTaskDetails;
 
 const InfoBox = ({label, value})=>{
-  return 
+  return <>
+  <label className='text-xs font-medium text-slate-500'>{label}</label>
+
+  <p className='text-[12px] md:text-[13px] font-medium text-gray-700 mt-1'>{value}</p>
+  
+  </>
+};
+
+
+const TodoChecklist=({text, isChecked, onChange}) =>{
+  return <div className='flex items-center gap-3 p-3'>
+    <input
+    type='checkbox'
+    checked={isChecked}
+    onChange={onChange}
+    className='w-4 h-4 text-blue-500 bg-gray-100 border-gray-300 rounded-sm outline-none cursor-pointer'/>
+
+    <p className='text-[13px] text-gray-800'>{text}</p>
+  </div>
 }
