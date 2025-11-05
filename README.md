@@ -1,57 +1,69 @@
-🧩 Task Manager Application
 
-A powerful, role-based task management system designed to help teams organize, prioritize, and complete work efficiently.
-The application provides a clean, responsive interface and automation features to streamline collaboration and progress tracking.
 
-🚀 Features & Functionalities Implemented
-1️⃣ User Dashboard
+# 🧩 Task Manager Application
 
-Personalized dashboard displaying assigned tasks, deadlines, and completion status.
+A powerful **role-based task management system** designed to help teams organize, prioritize, and complete work efficiently.
+The application provides a **clean, responsive interface** and **automation features** to streamline collaboration and progress tracking.
 
-Visual insights into task progress and performance metrics.
+---
 
-2️⃣ Task Management
+## 🚀 Features & Functionalities Implemented
 
-Create, edit, and delete tasks with titles, descriptions, priorities, and due dates.
+### 1️⃣ User Dashboard
 
-Assign tasks to individual users or multiple team members.
+* Personalized dashboard displaying assigned tasks, deadlines, and completion status.
+* Visual insights into task progress and performance metrics.
 
-3️⃣ Automated Status Updates
+---
 
-Task status automatically updates based on checklist completion or progress percentage.
+### 2️⃣ Task Management
 
-Reduces manual status tracking errors and improves workflow automation.
+* Create, edit, and delete tasks with titles, descriptions, priorities, and due dates.
+* Assign tasks to individual users or multiple team members.
 
-4️⃣ Team Collaboration
+---
 
-Assign and share tasks with multiple team members.
+### 3️⃣ Automated Status Updates
 
-Receive real-time updates when task status or details change.
+* Task status automatically updates based on checklist completion or progress percentage.
+* Reduces manual status tracking errors and improves workflow automation.
 
-Encourage transparency and accountability within teams.
+---
 
-5️⃣ Priority & Progress Tracking
+### 4️⃣ Team Collaboration
 
-Categorize tasks by Low, Medium, or High priority levels.
+* Assign and share tasks with multiple team members.
+* Receive real-time updates when task status or details change.
+* Encourages transparency and accountability within teams.
 
-Track completion through visual progress indicators (e.g., progress bars or percentages).
+---
 
-Gain better visibility into team workload and timelines.
+### 5️⃣ Priority & Progress Tracking
 
-6️⃣ Task Report Downloads
+* Categorize tasks by **Low**, **Medium**, or **High** priority levels.
+* Track completion through visual progress indicators (e.g., progress bars or percentages).
+* Gain better visibility into team workload and timelines.
 
-Export task data in CSV, Excel, or PDF formats for analysis and reporting.
+---
 
-Apply filters by date range, status, or assigned users for customized reports.
+### 6️⃣ Task Report Downloads
 
-7️⃣ Attachments Support
+* Export task data in **CSV**, **Excel**, or **PDF** formats for analysis and reporting.
+* Apply filters by **date range**, **status**, or **assigned users** for customized reports.
 
-Upload or link task-related documents and resources.
+---
 
-Provide easy and secure access to relevant files for authorized users.
+### 7️⃣ Attachments Support
 
-8️⃣ Mobile Responsive UI
+* Upload or link task-related documents and resources.
+* Provide easy and secure access to relevant files for authorized users.
 
-Fully responsive design optimized for desktop, tablet, and mobile screens.
+---
 
-Delivers a consistent and intuitive user experience across all devices.
+### 8️⃣ Mobile Responsive UI
+
+* Fully responsive design optimized for **desktop**, **tablet**, and **mobile** screens.
+* Delivers a consistent and intuitive user experience across all devices.
+
+---
+
