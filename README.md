@@ -41,14 +41,14 @@ The application provides a **clean, responsive interface** and **automation feat
 ### 5️⃣ Priority & Progress Tracking
 
 * Categorize tasks by **Low**, **Medium**, or **High** priority levels.
-* Track completion through visual progress indicators (e.g., progress bars or percentages).
+* Track completion through visual progress indicators (e.g., progress bars ).
 * Gain better visibility into team workload and timelines.
 
 ---
 
 ### 6️⃣ Task Report Downloads
 
-* Export task data in **CSV**, **Excel**, or **PDF** formats for analysis and reporting.
+* Export task data in  **PDF** formats for analysis and reporting.
 * Apply filters by **date range**, **status**, or **assigned users** for customized reports.
 
 ---
