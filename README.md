@@ -66,3 +66,29 @@ The application provides a **clean, responsive interface** and **automation feat
 
 ---
 
+````# 🧩 Clone the Repository
+git clone https://github.com/Keerthi-2025/Task-Manager-Repo.git
+
+# 📂 Navigate into the Project Directory
+cd Task-Manager-Repo
+
+# 📦 Install Dependencies
+npm install
+# or
+yarn install
+
+# ⚙️ Create Environment Variables
+# Create a new .env file in the root directory and add:
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+ADMIN_INVITE_TOKEN=your_admin_invite_token
+PORT=8000
+
+# 🚀 Run the Application in Development Mode
+npm run dev
+# or
+yarn dev
+
+# 🌐 The application will start on:
+# http://localhost:8000
+````
