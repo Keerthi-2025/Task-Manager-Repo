@@ -1,52 +1,57 @@
 🧩 Task Manager Application
 
-A powerful, role-based task management system designed to help teams organize, prioritize, and complete work efficiently. The application provides a clean, responsive interface and automation to streamline collaboration and progress tracking.
+A powerful, role-based task management system designed to help teams organize, prioritize, and complete work efficiently.
+The application provides a clean, responsive interface and automation features to streamline collaboration and progress tracking.
 
 🚀 Features & Functionalities Implemented
-1. User Dashboard
+1️⃣ User Dashboard
 
 Personalized dashboard displaying assigned tasks, deadlines, and completion status.
 
 Visual insights into task progress and performance metrics.
 
-2. Task Management
+2️⃣ Task Management
 
 Create, edit, and delete tasks with titles, descriptions, priorities, and due dates.
 
 Assign tasks to individual users or multiple team members.
 
-3. Automated Status Updates
+3️⃣ Automated Status Updates
 
 Task status automatically updates based on checklist completion or progress percentage.
 
-Reduces manual status tracking errors.
+Reduces manual status tracking errors and improves workflow automation.
 
-4. Team Collaboration
+4️⃣ Team Collaboration
 
 Assign and share tasks with multiple team members.
 
-Real-time updates for assigned users when task status or details change.
+Receive real-time updates when task status or details change.
 
-5. Priority & Progress Tracking
+Encourage transparency and accountability within teams.
 
-Tasks categorized by Low, Medium, and High priority levels.
+5️⃣ Priority & Progress Tracking
+
+Categorize tasks by Low, Medium, or High priority levels.
 
 Track completion through visual progress indicators (e.g., progress bars or percentages).
 
-6. Task Report Downloads
+Gain better visibility into team workload and timelines.
+
+6️⃣ Task Report Downloads
 
 Export task data in CSV, Excel, or PDF formats for analysis and reporting.
 
-Include filters for date range, status, or assigned users.
+Apply filters by date range, status, or assigned users for customized reports.
 
-7. Attachments Support
+7️⃣ Attachments Support
 
 Upload or link task-related documents and resources.
 
-Secure access to uploaded attachments for relevant users only.
+Provide easy and secure access to relevant files for authorized users.
 
-8. Mobile Responsive UI
+8️⃣ Mobile Responsive UI
 
-Fully responsive interface optimized for desktop, tablet, and mobile screens.
+Fully responsive design optimized for desktop, tablet, and mobile screens.
 
-Consistent and user-friendly design across all devices.
+Delivers a consistent and intuitive user experience across all devices.
