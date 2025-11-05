@@ -8,7 +8,6 @@ The application provides a **clean, responsive interface** and **automation feat
 ---
 
 ## 🚀 Features & Functionalities Implemented
-
 ### 1️⃣ User Dashboard
 
 * Personalized dashboard displaying assigned tasks, deadlines, and completion status.
