@@ -1,5 +1,3 @@
-
-
 # 🧩 Task Manager Application
 
 A powerful **role-based task management system** designed to help teams organize, prioritize, and complete work efficiently.
